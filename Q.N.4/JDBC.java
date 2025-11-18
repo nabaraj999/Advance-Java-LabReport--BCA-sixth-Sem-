@@ -1,8 +1,9 @@
+
 import java.sql.*;
 
 public class JDBC {
 
-    static final String URL = "jdbc:mysql://localhost:3306/DbNamee";
+    static final String URL = "jdbc:mysql://localhost:3306/a_java";
     static final String USER = "root";
     static final String PASSWORD = "";
 
@@ -24,11 +25,11 @@ public class JDBC {
     public static void insertData() {
         String sql = "INSERT INTO Employees (eno, ename, eDepartment, eSalary) VALUES (?, ?, ?, ?)";
         Object[][] employees = {
-            {1, "Kritisha Adhikari", "HR", 50000.0},
-            {2, "Kritika Mahat", "IT", 60000.0},
-            {3, "Subu Neupane", "Finance", 60000.0},
-            {4, "Kritan Adhikari", "Marketing", 55000.0},
-            {5, "Dewaki Adhikari", "Sales", 58000.0}
+            {1, "Sangam Timalsina ", "HR", 50000.0},
+            {2, " Nabaraj Acharya ", "IT", 60000.0},
+            {3, "Nayan Maharjan", "Finance", 60000.0},
+            {4, "Manjit Pathak", "Marketing", 55000.0},
+            {5, "Sushil Timalsina", "Sales", 58000.0}
         };
 
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
@@ -71,6 +72,7 @@ public class JDBC {
             e.printStackTrace();
         }
     }
+
 
     public static void selectData() {
         String sql = "SELECT * FROM Employees WHERE eDepartment = ?";
