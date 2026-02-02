@@ -19,7 +19,7 @@ public class EmployeeServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         // Hardcoded employee details (for demo)
-        String empName = "John Doe";
+        String empName = "Nabaraj";
         int empId = 101;
         String empDepartment = "IT";
         double empSalary = 55000.50;
