@@ -46,7 +46,7 @@ public class Login extends JFrame {
                 String password = new String(((JPasswordField) passwordPanel.getComponent(1)).getPassword());
 
                 // Simple login validation
-                if (username.equals("Kritisha") && password.equals("Nepal@123")) {
+                if (username.equals("nabu") && password.equals("Nepal@123")) {
                     JOptionPane.showMessageDialog(Login.this, "Login successful!");
                 } else {
                     JOptionPane.showMessageDialog(Login.this, "Invalid username or password", "Error", JOptionPane.ERROR_MESSAGE);
