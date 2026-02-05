@@ -1,0 +1,8 @@
+<servlet>
+    <servlet-name>DisplayCookieId</servlet-name>
+    <servlet-class>DisplayCookieIdServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>DisplayCookieId</servlet-name>
+    <url-pattern>/displaycookie</url-pattern>
+</servlet-mapping>

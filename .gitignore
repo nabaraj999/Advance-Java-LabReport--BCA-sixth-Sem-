@@ -1,0 +1,31 @@
+# Java compiled files
+*.class
+
+# Packages / build outputs
+*.jar
+*.war
+*.ear
+
+# Maven / Gradle
+target/
+build/
+.mvn/
+gradle/
+.gradle/
+
+# IDE files
+.classpath
+.project
+.settings/
+.idea/
+*.iml
+*.iws
+*.ipr
+bin/
+out/
+
+# Temporary / logs
+*.log
+*.tmp
+.DS_Store
+Thumbs.db

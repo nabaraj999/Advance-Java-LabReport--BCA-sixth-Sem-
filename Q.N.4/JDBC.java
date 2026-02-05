@@ -3,7 +3,7 @@ import java.sql.*;
 
 public class JDBC {
 
-    static final String URL = "jdbc:mysql://localhost:3306/a_java";
+    static final String URL = "jdbc:mysql://localhost:3306/a_java?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Kathmandu";
     static final String USER = "root";
     static final String PASSWORD = "";
 
@@ -48,18 +48,17 @@ public class JDBC {
         }
     }
 
-    public static void updateData() {
-        String sql = "UPDATE Employees SET eSalary = ? WHERE eSalary < ?";
-        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setDouble(1, 14000.0);
-            pstmt.setDouble(2, 14000.0);
-            int rows = pstmt.executeUpdate();
-            System.out.println(rows + " employee(s) updated.");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+   public static void updateData() {
+    String sql = "UPDATE Employees SET eSalary = eSalary * 1.10 WHERE eSalary < ?";
+    try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+         PreparedStatement pstmt = conn.prepareStatement(sql)) {
+        pstmt.setDouble(1, 60000.0);
+        int rows = pstmt.executeUpdate();
+        System.out.println(rows + " employee(s) updated with 10% raise.");
+    } catch (SQLException e) {
+        e.printStackTrace();
     }
+}
 
     public static void deleteData() {
         String sql = "DELETE FROM Employees WHERE eno = ?";
@@ -78,9 +77,9 @@ public class JDBC {
         String sql = "SELECT * FROM Employees WHERE eDepartment = ?";
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setString(1, "IT");
+            pstmt.setString(1, "HR");
             ResultSet rs = pstmt.executeQuery();
-            System.out.println("Employees from IT department:");
+            System.out.println("Employees from HR department:");
             while (rs.next()) {
                 int eno = rs.getInt("eno");
                 String ename = rs.getString("ename");
@@ -94,10 +93,10 @@ public class JDBC {
     }
 
     public static void main(String[] args) {
-        createTable();
-       // insertData();
-       // updateData();
+        // createTable();
+       //insertData();
+       //updateData();
        // deleteData();
-       // selectData();
+       selectData();
     }
 }
